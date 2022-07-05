@@ -1,12 +1,10 @@
 package Usuarios;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.io.Console;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.Locale; 
 
-public class Usuario{
+public class Usuario {
     public Scanner scan = new Scanner(System.in);
     private String nome;
     private String senha;
@@ -16,44 +14,45 @@ public class Usuario{
     private int cep;
     private int cpf;
     private int rg;
-    private int telefone;   
+    private int telefone;
     private String ip;
 
-   
     /**
      * @param name
      * @param pass
      * @return
      */
-    public boolean logar(String name, String pass){
-        if(name.equalsIgnoreCase(this.nome) && pass.equals(this.senha)) return true;
+    public boolean logar(String name, String pass) {
+        if (name.equalsIgnoreCase(this.nome) && pass.equals(this.senha))
+            return true;
         return false;
     }
+
     public char[] readPassword(String string) {
         return readPassword("");
     }
+
     /**
      * @param novo
-     * @return 
+     * @return
      */
-    public void cadastraUsuario(){
-        //Usuario this = new Usuario();
+    public void cadastraUsuario() {
+        // Usuario this = new Usuario();
         System.out.println("Digite o nome: ");
         this.nome = scan.next();
         System.out.println("Digite a senha: ");
         Console console = System.console();
-        this.senha =  new String(console.readPassword());
+        this.senha = new String(console.readPassword());
         System.out.println("Digite o E-mail: ");
-        this.email =  scan.next();
+        this.email = scan.next();
         System.out.println("Digite o endereço: ");
-        this.endereco =  scan.next();
+        this.endereco = scan.next();
         System.out.println("Digite a cidade: ");
         this.cidade = scan.next();
-        try{
+        try {
             System.out.println("Digite o CEP: ");
             this.cep = scan.nextInt();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             scan.nextLine();
             System.out.println("Digite apenas valores numericos!");
             this.cep = scan.nextInt();
@@ -61,81 +60,76 @@ public class Usuario{
         try {
             System.out.println("Digite o CPF:");
             this.cpf = scan.nextInt();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             scan.nextLine();
             System.out.println("Digite apenas valores numericos!");
             this.cpf = scan.nextInt();
-        } 
+        }
         try {
             System.out.println("Digite o RG:");
             this.rg = scan.nextInt();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             scan.nextLine();
             System.out.println("Digite apenas valores numericos!");
-            this.rg= scan.nextInt();
-        } 
+            this.rg = scan.nextInt();
+        }
         try {
             System.out.println("Digite o telefone:");
             this.telefone = scan.nextInt();
-        }
-        catch(InputMismatchException e){
+        } catch (InputMismatchException e) {
             scan.nextLine();
             System.out.println("Digite apenas valores numericos!");
             this.telefone = scan.nextInt();
         }
-                
-       
-        
-        
+
     }
-    
-    public void alterardadospessoais(){
-        System.out.println("Qual dado deseja atualizar?\nDigite o valor corespondente\nNome     - 1\nSenha    - 2\nE-mail   - 3\nEndereço - 4\nCPF      - 5\nRG       - 6\nTelefone - 7");
+
+    public void alterardadospessoais() {
+        System.out.println(
+                "Qual dado deseja atualizar?\nDigite o valor corespondente\nNome     - 1\nSenha    - 2\nE-mail   - 3\nEndereço - 4\nCPF      - 5\nRG       - 6\nTelefone - 7");
         int var = scan.nextInt();
         System.out.println("\n");
-        switch(var){
+        switch (var) {
             case 1:
-               System.out.println("Digite o novo nome: ");
-               this.nome = scan.next();
-               break;
+                System.out.println("Digite o novo nome: ");
+                this.nome = scan.next();
+                break;
             case 2:
-               System.out.println("Digite a nova senha: ");
-               this.senha =  scan.next();
-               break;
+                System.out.println("Digite a nova senha: ");
+                this.senha = scan.next();
+                break;
             case 3:
-               System.out.println("Digite o novo E-mail: ");
-               this.email =  scan.next();
-               break;
+                System.out.println("Digite o novo E-mail: ");
+                this.email = scan.next();
+                break;
             case 4:
-               System.out.println("Digite o novo endereço: ");
-               this.endereco =  scan.next();
-               System.out.println("É na mesma cidade?\nSim - 1, Não - 0");
-               int v = scan.nextInt();
-               if(v == 1){
-                   break;
-               }
-               System.out.println("Digite a nova cidade: ");
-               this.cidade = scan.next();
-               System.out.println("Digite o novo CEP: ");
-               this.cep = scan.nextInt();
-               break;
+                System.out.println("Digite o novo endereço: ");
+                this.endereco = scan.next();
+                System.out.println("É na mesma cidade?\nSim - 1, Não - 0");
+                int v = scan.nextInt();
+                if (v == 1) {
+                    break;
+                }
+                System.out.println("Digite a nova cidade: ");
+                this.cidade = scan.next();
+                System.out.println("Digite o novo CEP: ");
+                this.cep = scan.nextInt();
+                break;
             case 5:
-               System.out.println("Digite o novo CPF:");
-               this.cpf = scan.nextInt();
-               break;
+                System.out.println("Digite o novo CPF:");
+                this.cpf = scan.nextInt();
+                break;
             case 6:
-               System.out.println("Digite o novo RG:");
-               this.rg = scan.nextInt();
-               break;
+                System.out.println("Digite o novo RG:");
+                this.rg = scan.nextInt();
+                break;
             case 7:
-               System.out.println("Digite o novo telefone:");
-               this.telefone = scan.nextInt();
-               break;
+                System.out.println("Digite o novo telefone:");
+                this.telefone = scan.nextInt();
+                break;
         }
     }
-    
+
     public String getNome() {
         return nome;
     }
@@ -212,14 +206,18 @@ public class Usuario{
         this.ip = ip;
     }
 
-    public String getIp(){
+    public String getIp() {
         return this.ip;
     }
 
-    public boolean Altenticar(String Nome, String Senha){
-       if(Nome.equals(this.nome) && Senha.equals(this.senha)){
-        return true;
-       }
-       return false;
+    public boolean Altenticar(String Nome, String Senha) {
+        if (Nome.equals(this.nome) && Senha.equals(this.senha)) {
+            return true;
+        }
+        return false;
+    }
+
+    public void listarUsuarios() {
+        System.out.printf("Nome: %s%nE-mail: %s%n", this.nome, this.email);
     }
 }

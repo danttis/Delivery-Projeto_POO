@@ -1,10 +1,9 @@
 package Mercado;
 
-
 public class Categoria {
     private int codigo;
     private String tipo;
-    
+
     public int getCodigo() {
         return codigo;
     }
@@ -21,10 +20,7 @@ public class Categoria {
         this.tipo = tipo;
     }
 
-  
-
-
     public void listacategorias() {
-           System.out.printf("Tipo: %s | Codigo: %d%n",this.tipo,this.codigo);
+        System.out.printf("Tipo: %s | Código: %d%n", this.tipo, this.codigo);
     }
 }

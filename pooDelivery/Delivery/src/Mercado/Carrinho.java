@@ -10,7 +10,7 @@ public class Carrinho {
     private List<String> descricao = new ArrayList<String>();
     private int qtd;
     private Double subtotal  = (double) 0;
-    private boolean finalizar = false;
+  //  private boolean finalizar = false;
     
    
     public int getIp() {
@@ -78,8 +78,11 @@ public class Carrinho {
   
 
 
-    public boolean isFinalizar() {
-        return finalizar;
+    public void finalizar() {
+        this.codigoprodutos.clear();
+        this.descricao.clear();
+        this.subtotal = 0.0;
+        this.qtd = 0;
     }
 
 
@@ -88,11 +91,6 @@ public class Carrinho {
         return codigoprodutos;
     }  
     
-    
-
-    public void setFinalizar(boolean finalizar) {
-        this.finalizar = finalizar;
-    }
 
     public void removerProduto(int x){
           for(int i = 0; i < this.codigoprodutos.size(); i++){
@@ -107,9 +105,9 @@ public class Carrinho {
     public void listacarrinho(){
         System.out.println("Carrinho:\n");
         for(int i = 0; i < codigoprodutos.size(); i++){
-            System.out.printf("Nome: %s | Codigo: %d%n",this.descricao.get(i),this.codigoprodutos.get(i));
+            System.out.printf("Nome: %s | Código %d%n",this.descricao.get(i),this.codigoprodutos.get(i));
         }
-        System.out.printf("Codigo do Usuario: %d%nQuantidade de itens: %d%nSubtotal: %f%n",this.codusuario,this.qtd,this.subtotal);
+        System.out.printf("Codigo do Usuario: %d%nQuantidade de itens: %d%nSubtotal: %.2f%n",this.codusuario,this.qtd,this.subtotal);
     }
       
 
